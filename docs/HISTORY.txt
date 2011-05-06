@@ -1,0 +1,19 @@
+Changelog
+=========
+
+1.2 (unreleased)
+----------------
+
+- Nothing changed yet.
+
+
+1.1 (2010-10-22)
+----------------
+
+- Use site name in user creation notification email.
+
+1.0.17 (2009-05-06)
+-------------------
+
+- Initial release
+
