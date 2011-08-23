@@ -1,7 +1,9 @@
 <metal:macro define-macro="body">
-  <metal:use-macro use-macro="here/edit_macros/macros/body">
+<metal:use-macro use-macro="here/edit_macros/macros/body">
    <metal:fill-slot
         fill-slot="extra_top"
+        tal:define="wf_state context/@@plone_context_state/workflow_state;
+                    member context/@@plone_portal_state/member;"
         tal:condition="python:wf_state == 'pending' and member.has_permission('Review portal content', context) and request.get('action', 'unknown')!='reject'">
       <tal:macro
             tal:define="macros here/additional_memberdata/macros | nothing;
@@ -13,7 +15,9 @@
       </tal:macro>
    </metal:fill-slot>
 
-   <metal:fill-slot fill-slot="buttons">
+   <metal:fill-slot fill-slot="buttons"
+        tal:define="wf_state context/@@plone_context_state/workflow_state;
+                    member context/@@plone_portal_state/member;">
       <div class="field"
            i18n:domain="plone"
            tal:condition="python:wf_state == 'pending' and member.has_permission('Review portal content', context) and request.get('action', 'unknown')!='reject'"
