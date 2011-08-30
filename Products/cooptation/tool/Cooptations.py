@@ -2,8 +2,8 @@
 #
 # File: Cooptations.py
 #
-# Copyright (c) 2009 by Ecreall
-# Generator: ArchGenXML Version 2.2 (svn)
+# Copyright (c) 2011 by Ecreall
+# Generator: ArchGenXML Version 2.7
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -47,7 +47,6 @@ class Cooptations(UniqueObject, BaseFolder, BrowserDefaultMixin):
     """
     """
     security = ClassSecurityInfo()
-
     implements(interfaces.ICooptations)
 
     meta_type = 'Cooptations'
@@ -63,7 +62,7 @@ class Cooptations(UniqueObject, BaseFolder, BrowserDefaultMixin):
     def __init__(self, id=None):
         BaseFolder.__init__(self,'portal_cooptations')
         self.setTitle('')
-        
+
         ##code-section constructor-footer #fill in your manual code here
         ##/code-section constructor-footer
 
@@ -71,7 +70,7 @@ class Cooptations(UniqueObject, BaseFolder, BrowserDefaultMixin):
     # tool should not appear in portal_catalog
     def at_post_edit_script(self):
         self.unindexObject()
-        
+
         ##code-section post-edit-method-footer #fill in your manual code here
         ##/code-section post-edit-method-footer
 
@@ -84,6 +83,4 @@ registerType(Cooptations, PROJECTNAME)
 
 ##code-section module-footer #fill in your manual code here
 ##/code-section module-footer
-
-
 

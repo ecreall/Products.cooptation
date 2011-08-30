@@ -2,8 +2,8 @@
 #
 # File: setuphandlers.py
 #
-# Copyright (c) 2009 by Ecreall
-# Generator: ArchGenXML Version 2.2 (svn)
+# Copyright (c) 2011 by Ecreall
+# Generator: ArchGenXML Version 2.7
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -28,7 +28,7 @@ def isNotcooptationProfile(context):
 
 def setupHideToolsFromNavigation(context):
     """hide tools"""
-    if isNotcooptationProfile(context): return 
+    if isNotcooptationProfile(context): return
     # uncatalog tools
     site = context.getSite()
     toolnames = ['portal_cooptations']
@@ -51,7 +51,7 @@ def setupHideToolsFromNavigation(context):
 def updateRoleMappings(context):
     """after workflow changed update the roles mapping. this is like pressing
     the button 'Update Security Setting' and portal_workflow"""
-    if isNotcooptationProfile(context): return 
+    if isNotcooptationProfile(context): return
     wft = getToolByName(context.getSite(), 'portal_workflow')
     wft.updateRoleMappings()
 

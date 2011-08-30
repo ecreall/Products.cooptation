@@ -2,8 +2,8 @@
 #
 # File: cooptation.py
 #
-# Copyright (c) 2009 by Ecreall
-# Generator: ArchGenXML Version 2.2 (svn)
+# Copyright (c) 2011 by Ecreall
+# Generator: ArchGenXML Version 2.7
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)

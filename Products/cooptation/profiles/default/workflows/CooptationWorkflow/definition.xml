@@ -124,7 +124,7 @@
     <guard-permission>Request review</guard-permission>
   </guard>
  </transition>
- <worklist worklist_id="cooptation_worklist" 
+ <worklist worklist_id="cooptation_worklist"
            title="cooptation_worklist">
   <action url="%(portal_url)s/search?review_state=pending"
           category="global">Pending cooptation_worklist</action>
@@ -132,7 +132,7 @@
    <guard-permission>Review portal content</guard-permission>
    <guard-role>Manager</guard-role>
   </guard>
-  <match name="review_state" 
+  <match name="review_state"
          values="pending"/>
  </worklist>
  <variable variable_id="action" for_catalog="False"
