@@ -12,6 +12,8 @@
 # Copy of register.py
 
 from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.cooptation.wfsubscribers import notifyCooptationToUser
+from Products.CMFCore.utils import getToolByName
 
 REQUEST = context.REQUEST
 
@@ -29,20 +31,23 @@ password = REQUEST.get('password')
 # for more info. (rohrer 2004-10-24)
 try:
     portal_registration.addMember(username, password, properties=REQUEST, REQUEST=context.REQUEST)
-    from Products.cooptation.wfsubscribers import notifyCooptation
-    from Products.CMFCore.utils import getToolByName
-    mtool = getToolByName(context, 'portal_membership')
-    portal = getToolByName(context, 'portal_url').getPortalObject()
-    member = mtool.getMemberById(username)
-    notifyCooptation(context, "cooptation_password_notification",
-                     receipts=[member],
-                     username=username,
-                     password=password,
-                     portal_url=portal.absolute_url())
 except AttributeError:
     state.setError('username', PMF(u'The login name you selected is already in use or is not valid. Please choose another.'))
     context.plone_utils.addPortalMessage(PMF(u'Please correct the indicated errors.'), 'error')
     return state.set(status='failure')
+
+mtool = getToolByName(context, 'portal_membership')
+portal = getToolByName(context, 'portal_url').getPortalObject()
+member = mtool.getMemberById(username)
+notifyCooptationToUser(context,
+                 recipients=[member],
+                 username=username,
+                 password=password,
+                 portal_url=portal.absolute_url())
+
+portal_workflow = getToolByName(context, 'portal_workflow')
+if portal_workflow.getInfoFor(context, 'review_state') == 'pending':
+    portal_workflow.doActionFor(context, 'accept', comment=context.REQUEST['comment'])
 
 context.plone_utils.addPortalMessage(PMF(u'User added.'))
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-01-19 09:34+0000\n"
+"POT-Creation-Date: 2011-08-31 10:05+0000\n"
 "PO-Revision-Date: 2009-01-15 16:30+0100\n"
 "Last-Translator: Vincent Fretin <vincentfretin@ecreall.com>\n"
 "Language-Team: French\n"

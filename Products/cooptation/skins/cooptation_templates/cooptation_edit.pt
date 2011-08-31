@@ -1,7 +1,7 @@
 <metal:macro define-macro="body">
 <metal:use-macro use-macro="here/edit_macros/macros/body">
    <metal:fill-slot
-        fill-slot="extra_top"
+   fill-slot="extra_top"
         tal:define="wf_state context/@@plone_context_state/workflow_state;
                     member context/@@plone_portal_state/member;"
         tal:condition="python:wf_state == 'pending' and member.has_permission('Review portal content', context) and request.get('action', 'unknown')!='reject'">
@@ -12,7 +12,7 @@
                         came_from_join_form python:True"
             tal:condition="showTop">
         <div metal:use-macro="top_macro"/>
-      </tal:macro>
+          </tal:macro>
    </metal:fill-slot>
 
    <metal:fill-slot fill-slot="buttons"
@@ -94,6 +94,8 @@
                   tal:content="request/comment|nothing"
                   ></textarea>
       </div>
+      
+      <div tal:replace="structure provider:plone.abovecontentbody"/>
 
                 <input class="context"
                        type="submit"

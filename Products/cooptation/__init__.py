@@ -58,7 +58,7 @@ DirectoryView.registerDirectory('skins', product_globals)
 
 ##code-section custom-init-head #fill in your manual code here
 from Products.PythonScripts.Utility import allow_module
-allow_module('Products.cooptation.wfsubscribers.notifyCooptation')
+allow_module('Products.cooptation.wfsubscribers.notifyCooptationToUser')
 ##/code-section custom-init-head
 
 

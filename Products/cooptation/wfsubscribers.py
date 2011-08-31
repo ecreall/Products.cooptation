@@ -14,8 +14,6 @@ __docformat__ = 'plaintext'
 
 
 ##code-section module-header #fill in your manual code here
-from zope.component import getUtility
-from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 ##/code-section module-header
 
@@ -30,9 +28,9 @@ def notifyCooptationPending(obj, event):
     ##code-section notifyCooptationPending #fill in your manual code here
     mtool = getToolByName(obj, 'portal_membership')
     prm = getToolByName(obj, 'acl_users').portal_role_manager
-    # We don't manage groups!
+    # We don't manage groups on purpose, only users having directly assigned Manager role are notified
     managers = [mtool.getMemberById(manager_id) for manager_id, dontcare in prm.listAssignedPrincipals('Manager')]
-    notifyCooptation(obj, "cooptation_pending_notification", receipts=managers)
+    notifyCooptation(obj, "cooptation_pending_notification", recipients=managers)
     ##/code-section notifyCooptationPending
 
 
@@ -60,31 +58,41 @@ def doCooptationAcceptation(obj, event):
     ##/code-section doCooptationAcceptation
 
 
-def notifyCooptation(obj, template_name, actor=None, receipts=None, **kwargs):
+def notifyCooptationToUser(obj, actor=None, recipients=None, **kwargs):
+    workspace = obj.getWorkspace()
+    role = obj.getRole()
+    if workspace and role:
+        groupname = getattr(workspace, 'getM%sGroup' % obj.getRole())()
+        gtool = getToolByName(obj, 'portal_groups')
+        username = kwargs['username']
+        gtool.addPrincipalToGroup(username, groupname)
+    notifyCooptation(obj, 'cooptation_password_notification', actor=actor, recipients=recipients, **kwargs)
+
+
+def notifyCooptation(obj, template_name, actor=None, recipients=None, **kwargs):
     """if not actor use AUTHENTICATED_USER
-       if not receipts use obj.getOwner()
+       if not recipients use obj.getOwner()
     """
-    mtool = getToolByName(obj, 'portal_membership')
     MailHost = getToolByName(obj, 'MailHost')
     if not actor:
         actor = obj.REQUEST.AUTHENTICATED_USER
     actor_fullname = actor.getProperty('fullname', actor.getId())
     actor_email = actor.getProperty('email', None)
-    encoding = getUtility(ISiteRoot).getProperty('email_charset')
+    encoding = "utf-8"
     template = getattr(obj, template_name)
-    if not receipts:
-        receipts = [obj.getOwner()]
-    for receipt in receipts:
-        if receipt is not None:
-            receipt_email = receipt.getProperty('email', None)
-            receipt_fullname = receipt.getProperty('fullname', receipt.getId())
-            if receipt_email:
+    if not recipients:
+        recipients = [obj.getOwner()]
+    for recipient in recipients:
+        if recipient is not None:
+            recipient_email = recipient.getProperty('email', None)
+            recipient_fullname = recipient.getProperty('fullname', recipient.getId())
+            if recipient_email:
                 message = template(obj,
                                    obj.REQUEST,
                                    actor_fullname=actor_fullname,
                                    actor_email=actor_email,
-                                   receipt_to_email=receipt_email,
-                                   receipt_to_name=receipt_fullname,
+                                   recipient_to_email=recipient_email,
+                                   recipient_to_name=recipient_fullname,
                                    **kwargs)
 
                 MailHost.send(message.encode(encoding))

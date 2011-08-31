@@ -4,6 +4,12 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Added workspace and role hidden fields to cooptation. A new @@addcooptation
+  use those new fields. The created user is added to a group for the
+  specified role on the workspace.
+  Added a "go back" link if workspace field exist.
+  [vincentfretin]
+
 - Fixed cooptation edit template for Plone 4.
   [vincentfretin]
 

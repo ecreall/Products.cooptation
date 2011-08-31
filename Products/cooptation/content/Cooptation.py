@@ -2,8 +2,8 @@
 #
 # File: Cooptation.py
 #
-# Copyright (c) 2009 by Ecreall
-# Generator: ArchGenXML Version 2.2 (svn)
+# Copyright (c) 2011 by Ecreall
+# Generator: ArchGenXML Version 2.7
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -22,6 +22,7 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.cooptation.config import *
 
 ##code-section module-header #fill in your manual code here
+from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
 ##/code-section module-header
 
 copied_fields = {}
@@ -68,6 +69,26 @@ schema = Schema((
             i18n_domain='cooptation',
         ),
     ),
+    ReferenceField(
+        name='workspace',
+        relationship="workspace",
+        widget=ReferenceBrowserWidget(
+            visible=-1,
+            label='Workspace',
+            label_msgid='cooptation_label_workspace',
+            i18n_domain='cooptation',
+        ),
+    ),
+    StringField(
+        name='role',
+        widget=SelectionWidget(
+            label="Role",
+            visible=-1,
+            label_msgid='cooptation_label_role',
+            i18n_domain='cooptation',
+        ),
+        vocabulary=['Reviewer', 'Editor', 'Reader'],
+    ),
 
 ),
 )
@@ -85,7 +106,6 @@ class Cooptation(BaseContent, BrowserDefaultMixin):
     """
     """
     security = ClassSecurityInfo()
-
     implements(interfaces.ICooptation)
 
     meta_type = 'Cooptation'
@@ -104,6 +124,4 @@ registerType(Cooptation, PROJECTNAME)
 
 ##code-section module-footer #fill in your manual code here
 ##/code-section module-footer
-
-
 
