@@ -71,13 +71,13 @@ schema = Schema((
     ),
     ReferenceField(
         name='workspace',
-        relationship="workspace",
         widget=ReferenceBrowserWidget(
             visible=-1,
             label='Workspace',
             label_msgid='cooptation_label_workspace',
             i18n_domain='cooptation',
         ),
+        relationship="workspace",
     ),
     StringField(
         name='role',

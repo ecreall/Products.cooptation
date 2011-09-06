@@ -12,6 +12,7 @@
      permission="zope2.View"
      />
   <include file="grok.zcml" />
+  <include package=".upgrade" />
   <!-- ##/code-section configure.zcml.header -->
 
   <i18n:registerTranslations directory="locales" />

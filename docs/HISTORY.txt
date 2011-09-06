@@ -4,6 +4,10 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Remove Copy or Move permission for everyone on portal_cooptations,
+  this actually remove the copy action from the menu on a cooptation.
+  [vincentfretin]
+
 - Added workspace and role hidden fields to cooptation. A new @@addcooptation
   use those new fields. The created user is added to a group for the
   specified role on the workspace.

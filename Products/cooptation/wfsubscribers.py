@@ -68,7 +68,6 @@ def notifyCooptationToUser(obj, actor=None, recipients=None, **kwargs):
         gtool.addPrincipalToGroup(username, groupname)
     notifyCooptation(obj, 'cooptation_password_notification', actor=actor, recipients=recipients, **kwargs)
 
-
 def notifyCooptation(obj, template_name, actor=None, recipients=None, **kwargs):
     """if not actor use AUTHENTICATED_USER
        if not recipients use obj.getOwner()

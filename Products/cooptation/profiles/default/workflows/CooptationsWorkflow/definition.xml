@@ -6,6 +6,7 @@
              xmlns:i18n="http://xml.zope.org/namespaces/i18n"
              i18n:domain="plone">
  <permission>Add portal content</permission>
+ <permission>Copy or Move</permission>
  <state state_id="published"
         title="Published"
         i18n:attributes="title">
@@ -13,6 +14,9 @@
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="Copy or Move"
+                  acquired="False">
   </permission-map>
  </state>
  <variable variable_id="action" for_catalog="False"
