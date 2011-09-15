@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: cooptation\n"
-"POT-Creation-Date: 2011-08-31 10:05+0000\n"
+"POT-Creation-Date: 2011-09-15 10:17+0000\n"
 "PO-Revision-Date: 2009-01-15 10:58+0100\n"
 "Last-Translator: Vincent Fretin <vincentfretin@ecreall.com>\n"
 "Language-Team: French\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: cooptation\n"
 
-#: ./viewlets.py:43
+#: ./viewlets.py:56
 msgid "This user will have the role ${role} assigned on the following workspace: ${workspace_url}"
 msgstr ""
 
@@ -76,8 +76,8 @@ msgid "cooptation_rejected_subject"
 msgstr ""
 
 #. Default: "With kind regards,"
-#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:32
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:54
+#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:34
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:55
 #: ./skins/cooptation_templates/cooptation_pending_notification.pt:26
 msgid "greetings"
 msgstr ""
@@ -95,7 +95,7 @@ msgid "help_reason"
 msgstr ""
 
 #. Default: "Back"
-#: ./viewlets.py:23
+#: ./viewlets.py:24
 msgid "label_back"
 msgstr ""
 
@@ -104,13 +104,13 @@ msgstr ""
 msgid "label_reason"
 msgstr ""
 
-#. Default: "This user has now the role ${role} on the following workspace: ${workspace_url}"
-#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:28
+#. Default: "This user has now the role ${role} on the workspace ${workspace_title} available at this url: ${workspace_url}"
+#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:30
 msgid "user_has_role_on_workspace"
 msgstr ""
 
 #. Default: "You have the role ${role} on the following workspace: ${workspace_url}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:52
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:53
 msgid "you_have_role_on_workspace"
 msgstr ""
 
