@@ -4,7 +4,10 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added use-macro password_notification_bottom to
+  cooptation_password_notification mail, so you can add some paragraphs to the
+  mail by adding a cooptation_macros.pt file in your own addon.
+  [vincentfretin]
 
 
 1.2 (2011-09-22)
