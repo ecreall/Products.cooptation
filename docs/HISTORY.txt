@@ -4,7 +4,10 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Save additional properties on cooptation object that will be set on the
+  created user.
+  Properties defined in additional_memberdata.pt should get the value
+  from the context and fallback to the request and then on member property.
 
 
 1.2.1 (2011-12-22)

@@ -23,6 +23,9 @@ from Products.cooptation.config import *
 
 ##code-section module-header #fill in your manual code here
 from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
+from Products.CMFCore import permissions
+from Products.CMFCore.utils import getToolByName
+from Products.PluggableAuthService.interfaces.plugins import IPropertiesPlugin
 ##/code-section module-header
 
 copied_fields = {}
@@ -114,6 +117,26 @@ class Cooptation(BaseContent, BrowserDefaultMixin):
     schema = Cooptation_schema
 
     ##code-section class-header #fill in your manual code here
+    security.declareProtected(permissions.ModifyPortalContent, 'processForm')
+    def processForm(self, data=1, metadata=0, REQUEST=None, values=None):
+        """Processes the schema looking for data in the form.
+        """
+        super(Cooptation, self).processForm(data, metadata, REQUEST, values)
+        request = REQUEST or self.REQUEST
+        schema = self.Schema()
+        pas = getToolByName(self, 'acl_users')
+        plugins = [plugin for id, plugin in pas.plugins.listPlugins(IPropertiesPlugin)]
+        properties = []
+        for plugin in plugins:
+            properties.extend([id for id, type in plugin._schema])
+
+        # Save additional properties on cooptation object that will be set on
+        # the created user.
+        # Properties defined in additional_memberdata.pt should get the value
+        # from the context and fallback to the request and then on member property.
+        for key, value in request.form.items():
+            if key in properties and key not in schema:
+                setattr(self, key, value)
     ##/code-section class-header
 
     # Methods

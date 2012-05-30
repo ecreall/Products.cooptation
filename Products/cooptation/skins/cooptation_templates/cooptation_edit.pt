@@ -3,8 +3,7 @@
    <metal:fill-slot
    fill-slot="extra_top"
         tal:define="wf_state context/@@plone_context_state/workflow_state;
-                    member context/@@plone_portal_state/member;"
-        tal:condition="python:wf_state == 'pending' and member.has_permission('Review portal content', context) and request.get('action', 'unknown')!='reject'">
+        member context/@@plone_portal_state/member;">
       <tal:macro
             tal:define="macros here/additional_memberdata/macros | nothing;
                         top_macro macros/cooptation | nothing;
