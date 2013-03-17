@@ -4,6 +4,8 @@
                   actor_email python:options['actor_email'];
                   recipient_to_email python:options['recipient_to_email'];
                   recipient_to_name python:options['recipient_to_name'];
+                  workspace python:options.get('workspace', None) or context.getWorkspace();
+                  role python:options.get('role', None) or context.getRole();
                   "
 >From: "<span tal:replace="python:context.email_from_name" />" <span tal:replace="structure lt"/><span tal:replace="python:context.email_from_address" /><span tal:replace="structure gt"/>
 To: <span tal:replace="recipient_to_email" />
@@ -23,10 +25,9 @@ Hello <span i18n:name="recipient_to_name" tal:replace="recipient_to_name" />,</d
     
 <div i18n:domain="cooptation"
      i18n:translate="user_has_role_on_workspace"
-     tal:define="workspace context/getWorkspace"
      tal:condition="workspace"
      tal:omit-tag="">
-This user has now the role <span i18n:name="role" i18n:domain="plone" i18n:translate="" tal:replace="context/getRole" /> on the workspace "<span i18n:name="workspace_title" tal:replace="workspace/Title" />" available at this url:
+This user has now the role <span i18n:name="role" i18n:domain="plone" i18n:translate="" tal:replace="role" /> on the workspace "<span i18n:name="workspace_title" tal:replace="workspace/Title" />" available at this url:
 <span i18n:name="workspace_url" tal:replace="workspace/absolute_url" /></div>
 
 "<div tal:replace="request/comment"/>"
