@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: cooptation\n"
-"POT-Creation-Date: 2011-09-15 10:17+0000\n"
+"POT-Creation-Date: 2013-03-17 21:29+0000\n"
 "PO-Revision-Date: 2009-01-15 10:58+0100\n"
 "Last-Translator: Vincent Fretin <vincentfretin@ecreall.com>\n"
 "Language-Team: French\n"
@@ -40,28 +40,28 @@ msgstr ""
 msgid "cooptation_notification_subject"
 msgstr ""
 
-#. Default: "Your user account has been created on ${sitename}."
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:27
+#. Default: "Your user account has been created on ${sitename} at the request of ${reviewer_name}."
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:29
 msgid "cooptation_password_body1"
 msgstr ""
 
 #. Default: "Your login: ${username}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:33
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:37
 msgid "cooptation_password_body2"
 msgstr ""
 
 #. Default: "Your password: ${password}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:38
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:42
 msgid "cooptation_password_body3"
 msgstr ""
 
 #. Default: "Please log in to ${url}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:44
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:48
 msgid "cooptation_password_body4"
 msgstr ""
 
 #. Default: "Creation of your account"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:14
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:15
 msgid "cooptation_password_subject"
 msgstr ""
 
@@ -77,14 +77,14 @@ msgstr ""
 
 #. Default: "With kind regards,"
 #: ./skins/cooptation_templates/cooptation_accepted_notification.pt:34
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:55
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:63
 #: ./skins/cooptation_templates/cooptation_pending_notification.pt:26
 msgid "greetings"
 msgstr ""
 
 #. Default: "Hello ${recipient_to_name},"
 #: ./skins/cooptation_templates/cooptation_accepted_notification.pt:17
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:21
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:22
 #: ./skins/cooptation_templates/cooptation_pending_notification.pt:17
 msgid "hello"
 msgstr ""
@@ -92,6 +92,11 @@ msgstr ""
 #. Default: "Enter the reason of this inscription."
 #: content/Cooptation.py
 msgid "help_reason"
+msgstr ""
+
+#. Default: "Enter an optionnal paragaph that will be inserted into the mail sent to the added person if the cooptation is accepted."
+#: ./content/Cooptation.py:81
+msgid "help_welcomeMsg"
 msgstr ""
 
 #. Default: "Back"
@@ -104,13 +109,18 @@ msgstr ""
 msgid "label_reason"
 msgstr ""
 
-#. Default: "This user has now the role ${role} on the workspace ${workspace_title} available at this url: ${workspace_url}"
+#. Default: "This user has now the role ${role} on the workspace \"${workspace_title}\" available at this url: ${workspace_url}"
 #: ./skins/cooptation_templates/cooptation_accepted_notification.pt:30
 msgid "user_has_role_on_workspace"
 msgstr ""
 
-#. Default: "You have the role ${role} on the following workspace: ${workspace_url}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:53
+#. Default: "Welcome Message"
+#: ./content/Cooptation.py:80
+msgid "welcome_msg"
+msgstr ""
+
+#. Default: "You have the role ${role} on the workspace \"${workspace_title}\" available at this url: ${workspace_url}"
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:57
 msgid "you_have_role_on_workspace"
 msgstr ""
 

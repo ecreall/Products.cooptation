@@ -4,7 +4,10 @@ Changelog
 1.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added a "welcome message" field. The paragraph is inserted into the mail sent 
+  to the user if the cooptation is accepted. The user now know who asked
+  the account creation.
+  [vincentfretin]
 
 
 1.3 (2012-06-20)
@@ -14,6 +17,7 @@ Changelog
   created user.
   Properties defined in additional_memberdata.pt should get the value
   from the context and fallback to the request and then on member property.
+  [vincentfretin]
 
 
 1.2.1 (2011-12-22)

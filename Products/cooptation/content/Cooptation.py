@@ -26,6 +26,8 @@ from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
 from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 from Products.PluggableAuthService.interfaces.plugins import IPropertiesPlugin
+from zope.i18nmessageid import MessageFactory
+_ = MessageFactory('cooptation')
 ##/code-section module-header
 
 copied_fields = {}
@@ -70,6 +72,15 @@ schema = Schema((
             description="Enter the reason of this inscription.",
             description_msgid="help_reason",
             i18n_domain='cooptation',
+        ),
+    ),
+    TextField(
+        name='welcomeMsg',
+        widget=TextAreaWidget(
+            label=_(u"welcome_msg", default=u"Welcome Message"),
+            description=_(u"help_welcomeMsg",
+                default="Enter an optionnal paragaph that will be inserted "
+     "into the mail sent to the added person if the cooptation is accepted."),
         ),
     ),
     ReferenceField(

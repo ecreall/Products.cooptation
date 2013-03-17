@@ -66,6 +66,8 @@ def notifyCooptationToUser(obj, actor=None, recipients=None, **kwargs):
         gtool = getToolByName(obj, 'portal_groups')
         username = kwargs['username']
         gtool.addPrincipalToGroup(username, groupname)
+    owner = obj.getOwner()
+    kwargs['reviewer_name'] = owner.getProperty('fullname', None) or owner.getId()
     notifyCooptation(obj, 'cooptation_password_notification', actor=actor, recipients=recipients, **kwargs)
 
 def notifyCooptation(obj, template_name, actor=None, recipients=None, **kwargs):
@@ -75,7 +77,7 @@ def notifyCooptation(obj, template_name, actor=None, recipients=None, **kwargs):
     MailHost = getToolByName(obj, 'MailHost')
     if not actor:
         actor = obj.REQUEST.AUTHENTICATED_USER
-    actor_fullname = actor.getProperty('fullname', actor.getId())
+    actor_fullname = actor.getProperty('fullname', None) or actor.getId()
     actor_email = actor.getProperty('email', None)
     encoding = "utf-8"
     template = getattr(obj, template_name)
@@ -84,7 +86,7 @@ def notifyCooptation(obj, template_name, actor=None, recipients=None, **kwargs):
     for recipient in recipients:
         if recipient is not None:
             recipient_email = recipient.getProperty('email', None)
-            recipient_fullname = recipient.getProperty('fullname', recipient.getId())
+            recipient_fullname = recipient.getProperty('fullname', None) or recipient.getId()
             if recipient_email:
                 message = template(obj,
                                    obj.REQUEST,

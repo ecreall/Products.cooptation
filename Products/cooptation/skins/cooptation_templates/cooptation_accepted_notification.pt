@@ -26,7 +26,7 @@ Hello <span i18n:name="recipient_to_name" tal:replace="recipient_to_name" />,</d
      tal:define="workspace context/getWorkspace"
      tal:condition="workspace"
      tal:omit-tag="">
-This user has now the role <span i18n:name="role" i18n:domain="plone" i18n:translate="" tal:replace="context/getRole" /> on the workspace <span i18n:name="workspace_title" tal:replace="workspace/Title" /> available at this url:
+This user has now the role <span i18n:name="role" i18n:domain="plone" i18n:translate="" tal:replace="context/getRole" /> on the workspace "<span i18n:name="workspace_title" tal:replace="workspace/Title" />" available at this url:
 <span i18n:name="workspace_url" tal:replace="workspace/absolute_url" /></div>
 
 "<div tal:replace="request/comment"/>"
