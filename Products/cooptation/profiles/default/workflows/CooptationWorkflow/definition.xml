@@ -11,7 +11,7 @@
  <permission>Request review</permission>
  <permission>Review portal content</permission>
  <state state_id="done"
-        title="Done"
+        title="Accepted"
         i18n:attributes="title">
   <permission-map name="Access contents information"
                   acquired="False">

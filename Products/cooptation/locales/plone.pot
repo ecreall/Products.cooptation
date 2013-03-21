@@ -31,6 +31,6 @@ msgid "Cooptations"
 msgstr ""
 
 #: profiles/default/workflows/CooptationWorkflow/definition.xml
-msgid "Done"
+msgid "Accepted"
 msgstr ""
 

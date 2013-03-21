@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Changed title of done state from Done to Accepted.
+  [vincentfretin]
+
 - Added a "welcome message" field. The paragraph is inserted into the mail sent 
   to the user if the cooptation is accepted. The user now know who asked
   the account creation.
