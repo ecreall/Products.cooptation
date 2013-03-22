@@ -13,6 +13,10 @@
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.CMFCore.utils import getToolByName
 
+request = context.REQUEST
+if request.form.get('edb_entite', None):
+    request.form['edb_entite'] = request.form['edb_entite'][0]
+
 reg_tool=context.portal_registration
 def missing(field):
     state.setError(field, PMF(u'This field is required, please provide some information.'), 'input_required')
