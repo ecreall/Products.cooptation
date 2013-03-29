@@ -15,7 +15,8 @@ from Products.CMFCore.utils import getToolByName
 
 request = context.REQUEST
 if request.form.get('edb_entite', None):
-    request.form['edb_entite'] = request.form['edb_entite'][0]
+    if not isinstance(request.form['edb_entite'], (str, unicode)):
+        request.form['edb_entite'] = request.form['edb_entite'][0]
 
 reg_tool=context.portal_registration
 def missing(field):
