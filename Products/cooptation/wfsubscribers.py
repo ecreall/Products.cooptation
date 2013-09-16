@@ -14,6 +14,7 @@ __docformat__ = 'plaintext'
 
 
 ##code-section module-header #fill in your manual code here
+from email import message_from_string
 from Products.CMFCore.utils import getToolByName
 ##/code-section module-header
 
@@ -66,9 +67,13 @@ def notifyCooptationToUser(obj, actor=None, recipients=None, **kwargs):
         gtool = getToolByName(obj, 'portal_groups')
         username = kwargs['username']
         gtool.addPrincipalToGroup(username, groupname)
+
     owner = obj.getOwner()
+    pwrt = getToolByName(obj, 'portal_password_reset')
+    reset = pwrt.requestReset(username)
     kwargs['reviewer_name'] = owner.getProperty('fullname', None) or owner.getId()
-    notifyCooptation(obj, 'cooptation_password_notification', actor=actor, recipients=recipients, **kwargs)
+    notifyCooptation(obj, 'cooptation_password_notification', actor=actor, recipients=recipients, reset=reset, **kwargs)
+
 
 def notifyCooptation(obj, template_name, actor=None, recipients=None, **kwargs):
     """if not actor use AUTHENTICATED_USER
@@ -88,15 +93,24 @@ def notifyCooptation(obj, template_name, actor=None, recipients=None, **kwargs):
             recipient_email = recipient.getProperty('email', None)
             recipient_fullname = recipient.getProperty('fullname', None) or recipient.getId()
             if recipient_email:
-                message = template(obj,
-                                   obj.REQUEST,
-                                   actor_fullname=actor_fullname,
-                                   actor_email=actor_email,
-                                   recipient_to_email=recipient_email,
-                                   recipient_to_name=recipient_fullname,
-                                   **kwargs)
-
-                MailHost.send(message.encode(encoding))
+                mail_text = template(obj,
+                                     obj.REQUEST,
+                                     actor_fullname=actor_fullname,
+                                     actor_email=actor_email,
+                                     recipient_to_email=recipient_email,
+                                     recipient_to_name=recipient_fullname,
+                                     **kwargs)
+                # The mail headers are not properly encoded we need to extract
+                # them and let MailHost manage the encoding.
+                if isinstance(mail_text, unicode):
+                    mail_text = mail_text.encode(encoding)
+                message_obj = message_from_string(mail_text.strip())
+                subject = message_obj['Subject']
+                m_to = message_obj['To']
+                m_from = message_obj['From']
+                msg_type = message_obj.get('Content-Type', 'text/plain')
+                MailHost.send(mail_text, m_to, m_from, subject=subject,
+                    charset=encoding, msg_type=msg_type, immediate=True)
 
 
 ##code-section module-footer #fill in your manual code here

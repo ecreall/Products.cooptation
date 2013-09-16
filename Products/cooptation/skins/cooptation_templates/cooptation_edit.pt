@@ -19,63 +19,6 @@
                     member context/@@plone_portal_state/member;">
       <div class="field"
            i18n:domain="plone"
-           tal:condition="python:wf_state == 'pending' and member.has_permission('Review portal content', context) and request.get('action', 'unknown')!='reject'"
-           tal:define="error errors/password | nothing;
-                       password request/password | nothing;"
-           tal:attributes="class python:test(error, 'field error', 'field')">
-
-        <label for="password"
-               i18n:translate="label_password">Password</label>
-
-        <span class="fieldRequired" title="Required"
-              i18n:attributes="title title_required;"
-              i18n:translate="label_required">(Required)</span>
-
-              <div class="formHelp" i18n:translate="help_password_creation">
-                Minimum 5 characters.
-              </div>
-
-              <div tal:content="error">Validation error output</div>
-
-              <input type="password"
-                     name="password"
-                     id="password"
-                     size="10"
-                     value=""
-                     />
-      </div>
-
-      <div class="field"
-           i18n:domain="plone"
-           tal:condition="python:wf_state == 'pending' and member.has_permission('Review portal content', context) and request.get('action', 'unknown')!='reject'"
-           tal:define="error errors/password_confirm | nothing;
-                       password_confirm request/password_confirm | nothing;"
-           tal:attributes="class python:test(error, 'field error', 'field')">
-
-
-        <label for="password_confirm"
-               i18n:translate="label_confirm_password">Confirm password</label>
-
-        <span class="fieldRequired" title="Required"
-              i18n:attributes="title title_required;"
-              i18n:translate="label_required">(Required)</span>
-
-              <div class="formHelp" i18n:translate="help_confirm_password">
-                Re-enter the password. Make sure the passwords are identical.
-              </div>
-
-              <div tal:content="error">Validation error output</div>
-
-              <input type="password"
-                     name="password_confirm"
-                     id="password_confirm"
-                     size="10"
-                     value=""
-                     />
-      </div>
-
-      <div class="field"
-           i18n:domain="plone"
            tal:condition="python:wf_state == 'pending' and member.has_permission('Review portal content', context)">
         <label for="comment" 
                i18n:translate="label_comments">Comments</label>

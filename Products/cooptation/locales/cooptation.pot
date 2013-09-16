@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: cooptation\n"
-"POT-Creation-Date: 2013-03-17 21:29+0000\n"
+"POT-Creation-Date: 2013-09-16 07:42+0000\n"
 "PO-Revision-Date: Fri Jan 16 11:58:33 2009\n"
 "Last-Translator: Vincent Fretin and Michael Launay <development@ecreall.com>\n"
 "Language-Team: Vincent Fretin and Michael Launay <development@ecreall.com>\n"
@@ -21,12 +21,12 @@ msgid "This user will have the role ${role} assigned on the following workspace:
 msgstr ""
 
 #. Default: "${actor_fullname} has accepted to coopt \"${content_name}\" at ${content_url}"
-#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:22
+#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:24
 msgid "cooptation_accepted_body"
 msgstr ""
 
 #. Default: "Cooptation of ${content_name} accepted"
-#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:10
+#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:12
 msgid "cooptation_accepted_subject"
 msgstr ""
 
@@ -41,27 +41,22 @@ msgid "cooptation_notification_subject"
 msgstr ""
 
 #. Default: "Your user account has been created on ${sitename} at the request of ${reviewer_name}."
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:29
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:31
 msgid "cooptation_password_body1"
 msgstr ""
 
 #. Default: "Your login: ${username}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:37
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:39
 msgid "cooptation_password_body2"
 msgstr ""
 
-#. Default: "Your password: ${password}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:42
+#. Default: "Please activate it by visiting ${set_password} Please activate your account before ${expirationdate}"
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:47
 msgid "cooptation_password_body3"
 msgstr ""
 
-#. Default: "Please log in to ${url}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:48
-msgid "cooptation_password_body4"
-msgstr ""
-
 #. Default: "Creation of your account"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:15
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:17
 msgid "cooptation_password_subject"
 msgstr ""
 
@@ -76,15 +71,15 @@ msgid "cooptation_rejected_subject"
 msgstr ""
 
 #. Default: "With kind regards,"
-#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:34
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:63
+#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:35
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:62
 #: ./skins/cooptation_templates/cooptation_pending_notification.pt:26
 msgid "greetings"
 msgstr ""
 
 #. Default: "Hello ${recipient_to_name},"
-#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:17
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:22
+#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:19
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:24
 #: ./skins/cooptation_templates/cooptation_pending_notification.pt:17
 msgid "hello"
 msgstr ""
@@ -110,7 +105,7 @@ msgid "label_reason"
 msgstr ""
 
 #. Default: "This user has now the role ${role} on the workspace \"${workspace_title}\" available at this url: ${workspace_url}"
-#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:30
+#: ./skins/cooptation_templates/cooptation_accepted_notification.pt:31
 msgid "user_has_role_on_workspace"
 msgstr ""
 
@@ -120,7 +115,7 @@ msgid "welcome_msg"
 msgstr ""
 
 #. Default: "You have the role ${role} on the workspace \"${workspace_title}\" available at this url: ${workspace_url}"
-#: ./skins/cooptation_templates/cooptation_password_notification.pt:57
+#: ./skins/cooptation_templates/cooptation_password_notification.pt:56
 msgid "you_have_role_on_workspace"
 msgstr ""
 

@@ -5,7 +5,7 @@
 ##bind script=script
 ##bind state=state
 ##bind subpath=traverse_subpath
-##parameters=password='password', password_confirm='password_confirm', came_from_prefs=None
+##parameters=
 ##title=Register a User
 ##
 
@@ -21,8 +21,7 @@ portal = context.portal_url.getPortalObject()
 portal_registration = context.portal_registration
 
 username = REQUEST['username']
-
-password = REQUEST.get('password')
+password = portal_registration.generatePassword()
 
 # This is a temporary work-around for an issue with CMF not properly
 # reserving some existing ids (FSDV skin elements, for example). Until
@@ -42,7 +41,6 @@ member = mtool.getMemberById(username)
 notifyCooptationToUser(context,
                  recipients=[member],
                  username=username,
-                 password=password,
                  portal_url=portal.absolute_url())
 
 portal_workflow = getToolByName(context, 'portal_workflow')
