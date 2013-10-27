@@ -62,10 +62,10 @@ def doCooptationAcceptation(obj, event):
 def notifyCooptationToUser(obj, actor=None, recipients=None, **kwargs):
     workspace = obj.getWorkspace()
     role = obj.getRole()
+    username = kwargs['username']
     if workspace and role:
         groupname = getattr(workspace, 'getM%sGroup' % obj.getRole())()
         gtool = getToolByName(obj, 'portal_groups')
-        username = kwargs['username']
         gtool.addPrincipalToGroup(username, groupname)
 
     owner = obj.getOwner()
