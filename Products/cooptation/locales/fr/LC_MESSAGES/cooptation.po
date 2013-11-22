@@ -91,7 +91,7 @@ msgstr "Quelles sont vos motivations à ajouter ce nouveau membre ?"
 #. Default: "Enter an optionnal paragaph that will be inserted into the mail sent to the added person if the cooptation is accepted."
 #: ./content/Cooptation.py:81
 msgid "help_welcomeMsg"
-msgstr "Saisissez un paragraphe optionnel qui sera inséré dans le mail envoyé au coopté si la cooptation est accepté."
+msgstr "Saisissez un paragraphe optionnel qui sera inséré dans le mail envoyé au coopté si la cooptation est acceptée."
 
 #. Default: "Back"
 #: ./viewlets.py:24
