@@ -47,7 +47,7 @@ msgstr "Votre compte utilisateur a été créé sur l'outil collaboratif ${siten
 #. Default: "Your login: ${username}"
 #: ./skins/cooptation_templates/cooptation_password_notification.pt:39
 msgid "cooptation_password_body2"
-msgstr "Votre login : ${username}"
+msgstr "Votre identifiant : ${username}"
 
 #. Default: "Please activate it by visiting ${set_password} Please activate your account before ${expirationdate}"
 #: ./skins/cooptation_templates/cooptation_password_notification.pt:47
